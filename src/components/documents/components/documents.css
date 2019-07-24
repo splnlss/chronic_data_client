@@ -1,0 +1,22 @@
+.form{
+  width: 400px;
+}
+
+.card{
+  align-self: center;
+}
+
+.add-button {
+    padding: 8px;
+    border-radius: 4px;
+    text-align: left;
+    border: 0;
+    font: inherit;
+    width: 100%;
+}
+
+ul,li{
+  list-style: none;
+  text-align: left;
+  padding:0px;
+}
