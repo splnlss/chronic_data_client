@@ -11,7 +11,7 @@ export function LandingPage(props) {
         return <Redirect to="/dashboard" />;
     }
     let styles = {
-      
+      paddingLeft: '86%'
     };
 
     return (
