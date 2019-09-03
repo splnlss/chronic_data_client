@@ -19,9 +19,9 @@ export class DocumentForm extends React.Component {
     goBack = () => this.props.history.goBack();
 
     onSubmit(values) {
-      const {documentName, notes, healthProviderName, documentFile} = values;
+      const {documentName, notes, healthProviderName, documentType, documentFile} = values;
       const {username} = this.props.auth.currentUser;
-      let documentUpload = {documentName, notes, healthProviderName, username};
+      let documentUpload = {documentName, notes, healthProviderName, documentType, username};
       
       //uploading imagefile to aws
       let formData = new FormData();

@@ -75,7 +75,9 @@ export class DocumentViewer extends React.Component {
                   <p>Document: </p>
                   <br></br>
                   {document.documentURL ? 
-                    <Link to={`/image/${document.documentURL.slice((document.documentURL.lastIndexOf('/')+1))}`}><img src={document.documentURL} width="200" height="auto"></img></Link>
+                    <Link to={`/image/${document.documentURL.slice((document.documentURL.lastIndexOf('/')+1))}`}>
+                      <embed src={document.documentURL} type="application/pdf" max-width="300"/>
+                      <img src={document.documentURL} width="300" height="auto"></img></Link>
                   : ''}
                   <br/>
                   {document.documentURL ? <a href={document.documentURL}>Download Original File</a> : ''}
