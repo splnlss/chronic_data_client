@@ -1,12 +1,17 @@
 import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
+import {Link} from 'react-router-dom';
 import Input from './input';
 import {login} from '../actions/auth';
 import {required, nonEmpty} from '../../validators';
 
 import {Button, Icon, Form} from 'semantic-ui-react';
 
-export class LoginForm extends React.Component {
+let styles = {
+    marginTop: '15px'
+  };
+
+export class LoginForm extends React.Component {  
     onSubmit(values) {
         return this.props.dispatch(login(values.username, values.password));
     }
@@ -48,9 +53,10 @@ export class LoginForm extends React.Component {
 {/* 
                 <a class="dropbox-btn" href="http://localhost:8080/api/auth/dropbox">Dropbox</a> */}
 
-                <Button disabled={this.props.pristine || this.props.submitting}>
+                <Button disabled={this.props.pristine || this.props.submitting} class="ui primary button" tabindex="0">
                     Log in
                 </Button>
+                <Button class="ui button" style={styles}><Link to="/register">Register</Link></Button>
             </Form>
         );
     }

@@ -14,7 +14,6 @@ export function RegistrationPage(props) {
         <div className="home ui message">
             <h2>Register for Account</h2>
             <RegistrationForm />
-            <Link to="/">Login</Link>
         </div>
     );
 }

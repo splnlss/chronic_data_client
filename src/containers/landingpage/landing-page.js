@@ -19,7 +19,6 @@ export function LandingPage(props) {
         <div className="home ui message">
             <h2>Welcome to Chronic Data</h2>
             <LoginForm />
-            <Link to="/register" style={styles}>Register</Link>
         </div>
       </main>
     );
