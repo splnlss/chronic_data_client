@@ -30,10 +30,13 @@ main {
 }
 
 .document{
-  background-color: #EEEEEE;
+  background-color: #f8f8f9;
   justify-content: center;
   min-width: 500px;
   padding:50px;
+  border-radius: .28571429rem;
+  -webkit-box-shadow: 0 0 0 1px rgba(34,36,38,.22) inset,0 0 0 0 transparent;
+  box-shadow: 0 0 0 1px rgba(34,36,38,.22) inset,0 0 0 0 transparent;
 
 }
 

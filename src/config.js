@@ -1,5 +1,5 @@
 export const API_BASE_URL =
-'https://nameless-bastion-74536.herokuapp.com/api'
+'https://nameless-bastion-74536.herokuapp.com/api';
 // 'http://localhost:8080/api';
 
 
