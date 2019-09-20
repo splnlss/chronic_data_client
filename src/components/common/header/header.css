@@ -1,7 +1,8 @@
 .header {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   background-color: white;
   height: 120px;
   color: darkgrey;
@@ -15,11 +16,14 @@
   color:black;
   font-size: 1.5em;
   margin: 50px 50px 0 50px;
+  width: 513px;
+  text-align: center;
 }
 
 .header-intro {
   font-size: large;
   margin: 0 50px 0 50px;
+  text-align: center;
 }
 
 .header-links{
@@ -34,10 +38,12 @@ ul{
   .header{
       display: flex;
       flex-direction: column;
+      align-items:stretch;
       justify-content: space-between;
       background-color: white;
       height: 50px;
       color: darkgrey;
+      padding: 5px;
      
   }
   .header-logo {
@@ -47,6 +53,9 @@ ul{
     display: none;
   }
   .header-intro{
+    display: none;
+  }
+  .headerPlus{
     display: none;
   }
   .header-links{

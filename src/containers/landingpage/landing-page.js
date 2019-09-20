@@ -16,7 +16,7 @@ export function LandingPage(props) {
 
     return (
       <main>
-        <div className="home ui message">
+        <div className="login-form">
             <h2>Welcome to Chronic Data</h2>
             <LoginForm />
         </div>

@@ -5,15 +5,39 @@ import Input from './input';
 import {login} from '../actions/auth';
 import {required, nonEmpty} from '../../validators';
 
-import {Button, Icon, Form} from 'semantic-ui-react';
+// import {Button, Form} from 'semantic-ui-react';
 
 let styles = {
     marginTop: '15px'
   };
 
-export class LoginForm extends React.Component {  
-    onSubmit(values) {
-        return this.props.dispatch(login(values.username, values.password));
+export class LoginForm extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            username: "",
+            password: ""
+        };
+
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
+    }
+
+    handleInputChange(event) {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+
+        this.setState({
+            [name]: value
+        });
+    }
+
+    onSubmit(e) {
+        e.preventDefault();
+        console.log("onSubmit", this.state);
+        return this.props.dispatch(login(this.state.username, this.state.password))
+            .catch((e) => { console.error("Caught an error:", e); })
     }
 
     render() {
@@ -26,38 +50,38 @@ export class LoginForm extends React.Component {
             );
         }
         return (
-            <Form
-                className="login-form ui"
-                onSubmit={this.props.handleSubmit(values =>
-                    this.onSubmit(values)
-                )}>
+            <form
+                className=""
+                onSubmit={this.onSubmit}>
                 {error}
                 <label htmlFor="username">Username</label>
-                <Field
-                    component={Input}
+                <input
                     type="text"
                     name="username"
                     id="username"
                     placeholder="Username"
-                    validate={[required, nonEmpty]}
+                    
+                    value={this.state.username}
+                    onChange={this.handleInputChange}
                 />
                 <label htmlFor="password">Password</label>
-                <Field
-                    component={Input}
+                <input
                     type="password"
                     name="password"
                     id="password"
                     placeholder="Password"
-                    validate={[required, nonEmpty]}
+                    
+                    value={this.state.password}
+                    onChange={this.handleInputChange}
                 />
 {/* 
                 <a class="dropbox-btn" href="http://localhost:8080/api/auth/dropbox">Dropbox</a> */}
 
-                <Button disabled={this.props.pristine || this.props.submitting} class="ui primary button" tabindex="0">
+                <button type="submit" className="button" tabIndex="0">
                     Log in
-                </Button>
-                <Button class="ui button" style={styles}><Link to="/register">Register</Link></Button>
-            </Form>
+                </button>
+                <button className="button" style={styles}><Link to="/register">Register</Link></button>
+            </form>
         );
     }
 }

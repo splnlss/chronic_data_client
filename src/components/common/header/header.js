@@ -19,11 +19,11 @@ export class Header extends React.Component {
     if (this.props.loggedIn){
         headerMenu =(
           <ul className="header-links">
-            <li><Link to="/Dashboard/SubmitDocument">+ Add Document</Link></li>
-            <li><Link to="/Dashboard/Documents">+ Documents</Link></li>
-            <li><Link to="/Dashboard/Vitals">+ Add Vitals</Link></li>
-            <li><Link to="/Dashboard/Contact">+ Contact</Link></li>
-            <li><a href="#" onClick={() => this.logOut()}>+ Log out</a></li>
+            <li><Link to="/Dashboard/SubmitDocument"><span className="headerPlus">+ </span>Add Document</Link></li>
+            <li><Link to="/Dashboard/Documents"><span className="headerPlus">+ </span>Documents</Link></li>
+            <li><Link to="/Dashboard/Vitals"><span className="headerPlus">+ </span>Add Vitals</Link></li>
+            <li><Link to="/Dashboard/Contact"><span className="headerPlus">+ </span>Contact</Link></li>
+            <li><a href="#" onClick={() => this.logOut()}><span className="headerPlus">+ </span>Log out</a></li>
           </ul>
         );
     }

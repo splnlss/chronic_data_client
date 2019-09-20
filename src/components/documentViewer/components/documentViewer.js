@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom';
-import {Button, Icon, Form} from 'semantic-ui-react';
+import {Button} from 'semantic-ui-react';
 import './documentViewer.css';
 
 import '../../../containers/dashboard/dashboard';

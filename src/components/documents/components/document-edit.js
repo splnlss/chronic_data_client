@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Field, reduxForm, focus} from 'redux-form';
 import {editDocument} from '../action/edit-document';
-import {Button, Icon, Form} from 'semantic-ui-react';
+import {Button, Form} from 'semantic-ui-react';
 import Input from './input';
 import {Redirect} from 'react-router-dom'
 import {API_BASE_URL} from '../../../config'
