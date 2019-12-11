@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Field, reduxForm, focus} from 'redux-form';
-import {editDocument} from '../action/edit-document';
+// import {editDocument} from '../action/edit-document';
 import {Button, Form} from 'semantic-ui-react';
 import Input from './input';
 import {Redirect} from 'react-router-dom'
@@ -39,13 +39,14 @@ export class DocumentEdit extends React.Component {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
-    })
+    }).then( () => window.location.reload()); //reloading page to ensure fresh results ****
+    this.props.history.push('/Dashboard/Documents');
 
-    return this.props
-        .dispatch(editDocument(id, documentUpload))
-        .then(()=>{
-          this.props.history.push('/Dashboard/Documents');
-        })
+    // return this.props
+    //     // .dispatch(editDocument(id, documentUpload))
+    //     .then(()=>{
+    //       this.props.history.push('/Dashboard/Documents');
+    //     })
   }
 
   render() {

@@ -74,13 +74,25 @@ export class DocumentViewer extends React.Component {
                   <p>Notes: {document.notes}</p>
                   <p>Document: </p>
                   <br></br>
-                  {document.documentURL ? 
+
+                  {/* DETERMINE if file is pdf or image*/}
+                  {document.documentTardigradeId ?
+                    <Link to={`${API_BASE_URL}/documents/${document.id}/document`}>
+                      <object data={`${API_BASE_URL}/documents/${document.id}/document`} type="application/pdf" max-width="300"/>
+                    </Link>
+                    :
+                    null
+                  }
+                  {(document.documentURL && !document.documentTardigradeId) ? 
                     <Link to={`/image/${document.documentURL.slice((document.documentURL.lastIndexOf('/')+1))}`}>
-                      <embed src={document.documentURL} type="application/pdf" max-width="300"/>
-                      <img src={document.documentURL} width="300" height="auto"></img></Link>
+                      
+                      <object data={document.documentURL} type="application/pdf" max-width="300"/>
+                      {/* <img src={document.documentURL} width="300" height="auto"></img> */}
+                      </Link>
                   : ''}
                   <br/>
-                  {document.documentURL ? <a href={document.documentURL}>Download Original File</a> : ''}
+                  {(document.documentURL && !document.documentTardigradeId)? <a href={document.documentURL}>Download Original File</a> : ''}
+                  {document.documentTardigradeId ? <a href={`${API_BASE_URL}/documents/${document.id}/document`}>Download Original File</a> : ''}
                   <div className="Edit">
                     <p>
                       {/* <button onClick={this.editHandler(document.id)}>Edit</button> */}
